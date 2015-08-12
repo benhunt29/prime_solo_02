@@ -16,10 +16,15 @@ position = document.getElementById('content');
 //Loop the array, extracting each array and writing information to the DOM
 //Note that the information is not 'clean'
 for(var i = 0; i < array.length; i++){
-	array[i] = calculateSTI(array[i]);//add reference to index
-  console.log(array[i]);
+	str = '';
+  array[i] = calculateSTI(array[i]);//add reference to index
+  //console.log(array[i]);
  	newEl = document.createElement('li');
-	newText = document.createTextNode(array[i]);
+  array[i].forEach(function(array,index){
+    str += array+' ';
+    //console.log(str);
+  });
+	newText = document.createTextNode(str);
 	newEl.appendChild(newText);
 	position.appendChild(newEl);
 }
